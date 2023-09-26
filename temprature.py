@@ -11,12 +11,12 @@ options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 
-chrome_driver_path = '/usr/lib/chromium-browser/chromedriver'  # Change to actual path
+chrome_driver_path = '/usr/lib/chromium-browser/chromedriver'  # Change to actual path if you've changed the default install path
 chrome_service = ChromeService(chrome_driver_path)
 
 browser = webdriver.Chrome(service=chrome_service, options=options)
 
-url = "http://192.168.1.5:8085" #set url with ip and port of OWMr web server
+url = "http://your_ip:8085" #set url with ip and port of OWMr web server. 8085 is the default port but you may need to changethis if you change the default port 
 
 i2cbus = SMBus(1)  # Use 1 for Raspberry Pi 2 and newer, use 0 for Raspberry Pi 1
 oled = ssd1306(i2cbus)
@@ -32,7 +32,7 @@ while True:
         browser.get(url)
         browser.implicitly_wait(10)
 
-        cpu_core_row = browser.find_element(By.XPATH, '//tr[./td[contains(text(), "CPU Core")]]')
+        cpu_core_row = browser.find_element(By.XPATH, '//tr[./td[contains(text(), "CPU Core")]]') #this gets the cpu core value from OHW. You could get GPU temprature for example.
         value_column = cpu_core_row.find_element(By.XPATH, './td[contains(@data-bind, "text: Value")]')
         cpu_core_value = value_column.text
 
@@ -42,7 +42,7 @@ while True:
         draw.text((33, 40), "CPU", font=font2, fill=1)
 
         oled.display()
-        time.sleep(1.5) #change to adjust how quick the browser refreshes
+        time.sleep(1.5) #change to adjust how quick the browser refreshes. It's untested for refreshing lower than every 1.5s
 
     except KeyboardInterrupt:
         break
