@@ -8,6 +8,16 @@ The following project was made with and tested with Python 3.9.2
 The windiows machine is running Windows 11  
 The I2C OLED is (128x64) is connected to a Raspberry pi 3a+ running Raspbian lite 32bit  
 Selenium is used and needs to be installed  
+## From a fresh install in user's home folder run:  
+`sudo raspi-config`  
+and under interface options, enable I2C.
+now run:  
+`sudo apt install i2c-tools`  
+and verify the I2C oled is decteded by running:  
+`i2cdetect -y 1`  
+if you used the default I2C bus on the raspberry pi it shuld return the address 3c (0x3c) somewhere  
+Install git if you havent already and clone the repository
+
 
 ## What you need to do on your windows machine
 Download the **Release** directory and run the web server on port 8085 using the following command:  
