@@ -44,8 +44,3 @@ Sometimes when the windows machine is put into sleep it will not correctly contu
 
 I'm also aware of of the python program very rarely freezing and it will just display the last temprature. I'm pretty sure this is Selenium just randomly crashing as the python code is very simple.
 
-
-In the **temprature.py** file use a text editor and make the following additions for your use case  
-change the `url` variable to the ip address and port you want to get teh data fromn. You will have to add an inbound firewall rule to allow access from your SBC.  
-
-
