@@ -37,10 +37,18 @@ The program should now work! and you can run it by executing:
 After for the program to work properly you will now need to head over to your Windows machine and follow the instructions.
 ## What you need to do on your windows machine
 Download the **Release** directory and run the web server on port 8085 using the following command:  
+`C:\PATH\TO\RELEASE\DIRECTORY\./OpenHardwareMonitorReport.exe RunWebserver --IgnoreMonitorRAM --IgnoreMonitorHDD --IgnoreMonitorFanController`  
+This command will start the web server on Port 8085.  
+If you want to start the web server on bootup you can put the provious command into a .ps1 file and execute it when you boot up using the following attributes:  
+Check the boxx 'Run with highest privileges'  
+Trigger - At log on (I had some issues when setting it to at startup so this is the next best thing)  
+Actions - Start a program, Program/script: powershell, arguments - `-windowstyle hidden -File "C:\LOCATION\TO\PS1\SCRIPT"`  
+
+
 
 
 ## Known issues
-Sometimes when the windows machine is put into sleep it will not correctly contunie running the web server. The fixes for this are to either reboot, rerun the command to launch the web server or restart the task in task scheduler.  
+Sometimes when the windows machine is put into sleep it will not correctly continue running the web server. The fixes for this are to either reboot, rerun the command to launch the web server or restart the task in task scheduler.  
 
 I'm also aware of of the python program very rarely freezing and it will just display the last temprature. I'm pretty sure this is Selenium just randomly crashing as the python code is very simple.
 
