@@ -46,7 +46,9 @@ Actions - Start a program, Program/script: powershell, arguments - `-windowstyle
 
 ## Reccomended setup  
 I have set up my pi using jumper wires that are connected to a spare internal USB2 connector. I have jumper wires connected to the GPIO as you can power the pi 3a+ using the GPIO 5v in/out pin and a ground pin. This is reccommended because it means you won't have to deal with any power connectors coming out of your PC. You do get undervoltage warnings but I hav not noticed any issues using it for about 2 months.  
-Make sure that in your UEFI/BIOS you have set continuous USB power with the PC turned off otherwise everytime you shut down it will remove power from the pi.
+Make sure that in your UEFI/BIOS you have set continuous USB power with the PC turned off otherwise everytime you shut down it will remove power from the pi.  
+
+It is also vital that you wire up your display correctly otherwise it will not work! There are plenty of resources online to help you with this.
 
 
 ## Known issues
